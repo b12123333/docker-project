@@ -1,0 +1,15 @@
+<div>
+  <form (ngSubmit)="handleSubmit()">
+    <label>Enter your index:</label>
+    <input [(ngModel)]="index" name="index" required />
+    <button type="submit">Submit</button>
+  </form>
+
+  <h3>Indexes I have seen:</h3>
+  <div>{{ renderSeenIndexes() }}</div>
+
+  <h3>Calculated Values:</h3>
+  <div *ngFor="let entry of renderValues()">
+    For index {{ entry.key }} I calculated {{ entry.value }}
+  </div>
+</div>
