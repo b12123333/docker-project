@@ -5,10 +5,5 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 
-# 安裝 Chrome Headless 用的依賴 (要測試用)
-RUN apk add --no-cache chromium
-
-ENV CHROME_BIN=/usr/bin/chromium-browser
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
-
-CMD ["npm", "run", "test", "--", "--watch=false", "--browsers=ChromeHeadless"]
+# 直接運行測試命令
+CMD ["npm", "run", "test"]
