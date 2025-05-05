@@ -5,5 +5,11 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 
-# 直接運行測試命令
+# 安裝 Chromium 瀏覽器
+RUN apk add --no-cache chromium
+
+# 設定 CHROME_BIN 環境變數，告訴 Karma 使用 Chromium
+ENV CHROME_BIN=/usr/bin/chromium-browser
+
+# 執行測試
 CMD ["npm", "run", "test"]
