@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { fib } from './fib.component';
-import {HttpClientModule} from '@angular/common/module.d-CnjH8Dlt';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('FibComponent', () => {
   let component: fib;
