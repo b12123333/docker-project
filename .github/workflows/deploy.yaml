@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+      - run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
       # Frontend test image (Angular)
       - run: docker build -t barrysu/frontend-test -f ./complex_frontend/Dockerfile.test ./complex_frontend
       - run: docker run barrysu/frontend-test npm run test -- --watch=false --browsers=ChromeHeadless
