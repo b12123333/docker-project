@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { otherpage } from './otherpage.component';
+import { ActivatedRoute } from '@angular/router';
 
 describe('OtherpageComponent', () => {
   let component: otherpage;
@@ -8,9 +8,20 @@ describe('OtherpageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [otherpage]
-    })
-    .compileComponents();
+      imports: [otherpage],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            snapshot: {
+              paramMap: {
+                get: (key: string) => null, // 模擬 route 參數
+              },
+            },
+          },
+        },
+      ],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(otherpage);
     component = fixture.componentInstance;
