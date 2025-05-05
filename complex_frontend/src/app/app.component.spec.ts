@@ -1,12 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import {RouterModule} from '@angular/router';
 
 describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],  // <== 改用 imports
+      imports: [AppComponent, RouterModule.forRoot([])],  // <== 改用 imports
     }).compileComponents();
 
     fixture = TestBed.createComponent(AppComponent);
