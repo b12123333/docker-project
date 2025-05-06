@@ -1,14 +1,14 @@
 spring:
   datasource:
-    url: jdbc:postgresql://${PGHOST:localhost}:${PGPORT:5432}/${PGDATABASE:postgre}
-    username: ${PGUSER:myuser}
-    password: ${PGPASSWORD:mypassword}
+    url: jdbc:postgresql://${PGHOST:database-2.cpa28y6oy93c.ap-northeast-1.rds.amazonaws.com}:${PGPORT:5432}/${PGDATABASE:postgre}
+    username: ${PGUSER:postgre}
+    password: ${PGPASSWORD:a22930246}
     driver-class-name: org.postgresql.Driver
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   data:
     redis:
-      host: ${REDIS_HOST:localhost}
+      host: ${REDIS_HOST:multi-docker-g5lk8w.serverless.apne1.cache.amazonaws.com}
       port: ${REDIS_PORT:6379}
       lettuce:
         pool:
