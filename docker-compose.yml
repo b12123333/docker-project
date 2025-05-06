@@ -4,8 +4,6 @@ services:
     image: 'barrysu/frontend'
     mem_limit: 128m
     hostname: frontend
-    ports:
-      - "80:80"   # ← 把 frontend 對外露出 80 port
 
   backend:
     image: 'barrysu/backend'
@@ -19,8 +17,6 @@ services:
       - PGPORT="${PGPORT}"
       - REDIS_HOST="${REDIS_HOST}"
       - REDIS_PORT="${REDIS_PORT}"
-    ports:
-      - "5000:5000"  # ← 把 backend 對外露出 5000 port
 
   nginx:
     image: 'barrysu/nginx'
