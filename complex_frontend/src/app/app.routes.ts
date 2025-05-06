@@ -3,7 +3,7 @@ import {fib} from './fib/fib.component';
 import {otherpage} from './otherpage/otherpage.component';
 
 export const routes: Routes = [
-  { path: 'fib', component: fib },
+  { path: '', component: fib },
   { path: 'otherpage', component: otherpage },
 ];
 
