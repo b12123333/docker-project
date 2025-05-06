@@ -40,10 +40,10 @@ FROM nginx:stable-alpine
 RUN rm -rf /usr/share/nginx/html/*
 
 # 複製 Angular build 好的檔案
-COPY --from=builder /app/dist/complex/browser /usr/share/nginx/html
-
 # 開放 port
 EXPOSE 80
+COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY --from=builder /app/dist/complex/browser /usr/share/nginx/html
 
 # 啟動 nginx
 CMD ["nginx", "-g", "daemon off;"]
