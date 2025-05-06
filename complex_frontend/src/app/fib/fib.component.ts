@@ -22,21 +22,21 @@ export class fib implements OnInit {
   }
 
   fetchValues(): void {
-    this.http.get<{ [key: string]: number }>('http://localhost:5000/api/fibonacci/current')
+    this.http.get<{ [key: string]: number }>('http://backend:5000/api/fibonacci/current')
       .subscribe(values => {
         this.values = values;
       });
   }
 
   fetchIndexes(): void {
-    this.http.get<{ number: number }[]>('http://localhost:5000/api/fibonacci/all')
+    this.http.get<{ number: number }[]>('http://backend:5000/api/fibonacci/all')
       .subscribe(seenIndexes => {
         this.seenIndexes = seenIndexes;
       });
   }
 
   handleSubmit(): void {
-    this.http.post(`http://localhost:5000/api/fibonacci/calculate/${this.index}`, null)
+    this.http.post(`http://backend:5000/api/fibonacci/calculate/${this.index}`, null)
       .subscribe(() => {
         this.index = '';
 
