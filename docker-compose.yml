@@ -13,7 +13,7 @@ services:
       - PGHOST=${PGHOST}
       - PGDATABASE=${PGDATABASE}
       - PGPASSWORD=${PGPASSWORD}
-      - PGPORT="${PGPORT}"
+      - PGPORT=${PGPORT}
       - REDIS_HOST=${REDIS_HOST}
       - REDIS_PORT=${REDIS_PORT}
     restart: always
