@@ -16,7 +16,6 @@ services:
       - PGPORT=${PGPORT}
       - REDIS_HOST=${REDIS_HOST}
       - REDIS_PORT=${REDIS_PORT}
-    restart: always
   nginx:
     image: 'barrysu/nginx'
     mem_limit: 128m
