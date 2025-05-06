@@ -1,15 +1,15 @@
 spring:
   datasource:
-    url: jdbc:postgresql://my-postgres:5432/postgres
-    username: barrysu
-    password: a22930246
+    url: jdbc:postgresql://${PGHOST:localhost}:${PGPORT:5432}/${PGDATABASE:mydb}
+    username: ${PGUSER:myuser}
+    password: ${PGPASSWORD:mypassword}
     driver-class-name: org.postgresql.Driver
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   data:
     redis:
-      host: my-redis
-      port: 6379
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
       lettuce:
         pool:
           max-active: 8
