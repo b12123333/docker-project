@@ -12,13 +12,13 @@ services:
     mem_limit: 128m
     hostname: backend
     environment:
-      - PGUSER=$PGUSER
-      - PGHOST=$PGHOST
-      - PGDATABASE=$PGDATABASE
-      - PGPASSWORD=$PGPASSWORD
-      - PGPORT=$PGPORT
-      - REDIS_HOST=$REDIS_HOST
-      - REDIS_PORT=$REDIS_PORT
+      - PGUSER="${PGUSER}"
+      - PGHOST="${PGHOST}"
+      - PGDATABASE="${PGDATABASE}"
+      - PGPASSWORD="${PGPASSWORD}"
+      - PGPORT="${PGPORT}"
+      - REDIS_HOST="${REDIS_HOST}"
+      - REDIS_PORT="${REDIS_PORT}"
     ports:
       - "5000:5000"  # ← 把 backend 對外露出 5000 port
 
