@@ -41,7 +41,7 @@ RUN rm -rf /usr/share/nginx/html/*
 
 # 複製 Angular build 好的檔案
 # 開放 port
-EXPOSE 80
+EXPOSE 3000
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/dist/complex/browser /usr/share/nginx/html
 
