@@ -1,7 +1,7 @@
 spring:
   datasource:
-    url: jdbc:postgresql://${PGHOST:database-2.cpa28y6oy93c.ap-northeast-1.rds.amazonaws.com}:${PGPORT:5432}/${PGDATABASE:postgre}
-    username: ${PGUSER:postgre}
+    url: jdbc:postgresql://${PGHOST:database-2.cpa28y6oy93c.ap-northeast-1.rds.amazonaws.com}:${PGPORT:5432}/${PGDATABASE:postgres}
+    username: ${PGUSER:postgres}
     password: ${PGPASSWORD:a22930246}
     driver-class-name: org.postgresql.Driver
   jpa:
