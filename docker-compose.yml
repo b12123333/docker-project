@@ -4,8 +4,6 @@ services:
     image: 'barrysu/frontend'
     mem_limit: 128m
     hostname: frontend
-    ports:
-      - '3000:3000'
   backend:
     image: 'barrysu/backend'
     mem_limit: 128m
@@ -18,8 +16,6 @@ services:
       - PGPORT="${PGPORT}"
       - REDIS_HOST="${REDIS_HOST}"
       - REDIS_PORT="${REDIS_PORT}"
-    ports:
-      - '5000:5000'
   nginx:
     image: 'barrysu/nginx'
     mem_limit: 128m
