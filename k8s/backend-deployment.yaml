@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
         - name: backend
-          image: barrysu/backend
+          image: barrysu/backend:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 5000
           env:

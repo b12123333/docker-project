@@ -41,3 +41,53 @@
 #          region: ap-northeast-1
 #          version_label: ${{ github.sha }}
 #          deployment_package: deploy.zip
+
+
+name: CI/CD with Docker Hub and AWS EKS
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Git SHA as image tag
+        id: vars
+        run: echo "GIT_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: Build and Push Docker Images
+        run: |
+          docker build -t barrysu/frontend:${GIT_SHA} ./complex_frontend
+          docker build -t barrysu/backend:${GIT_SHA} ./complex_backend
+          docker push barrysu/frontend:${GIT_SHA}
+          docker push barrysu/backend:${GIT_SHA}
+
+      - name: Setup kubectl
+        uses: azure/setup-kubectl@v3
+        with:
+          version: '1.29.0'
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
+          aws-region: ap-northeast-1
+
+      - name: Update kubeconfig
+        run: aws eks update-kubeconfig --region ap-northeast-1 --name your-eks-cluster-name
+
+      - name: Deploy to EKS
+        run: |
+          kubectl apply -f k8s/
+          kubectl set image deployment/frontend-deployment frontend=barrysu/frontend:${GIT_SHA}
+          kubectl set image deployment/backend-deployment backend=barrysu/backend:${GIT_SHA}
