@@ -49,3 +49,21 @@ R
 "complex_backend/docker-compose.yml,3\7\37709fe5b3a02920a2b1a07f854274de62899165
 O
 complex_frontend/src/index.html,8\6\86ec90249b8e56a8e3428b9a572b8761da520404
+P
+ complex_frontend/Dockerfile.test,b\7\b7c8dbbb78b837fb8966679de0debd432da70892
+Y
+)complex_frontend/src/app/app.component.ts,a\3\a3a1de861dff98f8c1bf287cfef6ddac8ab41c3b
+F
+docker-compose-dev.yml,9\5\95efa7ac30ddb82bc5239d379f0ab4909642ca0a
+M
+.github/workflows/deploy.yaml,6\b\6bf1df73dcb0e35c845e374bc98e9b64aa8192ae
+G
+complex_backend/pom.xml,d\6\d6c0606cd5c2ec387ccb1af4f05c73ed6417fab7
+S
+#complex_backend/complex_backend.iml,2\5\2541d17b594621dd8fa73b0f4f1fb300336ce5cb
+O
+complex_backend/Dockerfile.test,0\d\0dd2a95c2bdbd24095e119e6c65185e39c7cd617
+S
+#complex_frontend/nginx/default.conf,3\7\377a1f8e909b43b28109e208a384240aeac34e3f
+@
+nginx/Dockerfile,a\4\a4864c0d475111e1ee9e1c2e72d7d0c5e558de8d
