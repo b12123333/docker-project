@@ -84,7 +84,7 @@ jobs:
           aws-region: ap-northeast-1
 
       - name: Update kubeconfig
-        run: aws eks update-kubeconfig --region ap-northeast-1 --name your-eks-cluster-name
+        run: aws eks update-kubeconfig --region ap-northeast-1 --name k8s1
 
       - name: Deploy to EKS
         run: |
