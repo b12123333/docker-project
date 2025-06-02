@@ -71,7 +71,7 @@ jobs:
           docker push barrysu/frontend:${GIT_SHA}
           docker push barrysu/backend:${GIT_SHA}
 
-      - name: Install kubectl
+      - name: Install kubectl1
         uses: azure/setup-kubectl@v3
         with:
           version: 'v1.28.2' # version of kubectl
