@@ -54,7 +54,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code1211
+      - name: Checkout Code
         uses: actions/checkout@v3
 
       - name: Set up Git SHA as image tag
